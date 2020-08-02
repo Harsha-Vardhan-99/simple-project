@@ -17,14 +17,15 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
-import {CardsComponent} from './employees/cards/cards.component'
+import { CardsComponent } from './employees/cards/cards.component';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
-    CardsComponent
-  ],
+    CardsComponent,
+  ],entryComponents:[EmployeeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -37,7 +38,8 @@ import {CardsComponent} from './employees/cards/cards.component'
     MatRadioModule,
     MatDatepickerModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ],
   providers: [EmployeeService],
   bootstrap: [AppComponent]

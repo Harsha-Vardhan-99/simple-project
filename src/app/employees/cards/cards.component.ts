@@ -1,18 +1,15 @@
-import { EmployeeService } from './../../shared/employee.service';
 import { Component, OnInit } from '@angular/core';
-
+import {EmployeeService} from './../../shared/employee.service'
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css'],
-  providers:[EmployeeService]
+  styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
 Users=[];
-  constructor(service) {
-    this.Users=service.getUsers();
+  constructor(public service:EmployeeService) {
+    this.Users=this.service.getEmployee();
    }
-
   ngOnInit(): void {
   }
 

@@ -12,11 +12,11 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSave(): void{
+ onSave(): void{
     this.service.saveEmployee();
   }
   onCancel(){
     this.service.getEmployee();
   }
-
+  
 }

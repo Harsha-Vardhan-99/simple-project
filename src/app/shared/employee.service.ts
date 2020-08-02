@@ -4,13 +4,14 @@
 import { Injectable } from '@angular/core';
 import { FormGroup,FormControl, Validators, NG_VALIDATORS} from "@angular/forms";
 
-var localstorageDB=require ("localstorageDB");
-
+//var localstorageDB=require ("localstorageDB");
+import localStorageDB from "localStorageDB";
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  database=new localstorageDB("Employee",localStorage);
+  //database=new localstorageDB("Employee",localStorage);
+  database = new localStorageDB("Employee","localStorage")
   form: FormGroup=new FormGroup({
     $key:new FormControl(null),
     fullName:new FormControl('',Validators.required),
@@ -24,7 +25,7 @@ export class EmployeeService {
   });
   constructor() { 
   if(!this.database.tableExists("Users")){
-    this.database.createTable("Users",["fullName","email","mobile","gender","city"]);
+   this.database.createTable("Users",["fullName","email","mobile","gender","city"]);
   };
 }
   saveEmployee(){
@@ -33,6 +34,7 @@ export class EmployeeService {
     this.database.commit();
   }
   getEmployee(){
-    console.log(this.database.queryAll("Users"));
+    console.log(this.database.queryAll("Users",{}));
+    return this.database.queryAll("Users",{});
   }
 }
