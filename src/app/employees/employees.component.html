@@ -1,3 +1,5 @@
+
+<!-- Header -->
 <div class="container">
     <mat-toolbar color="primary">
       <button mat-icon-button class="example-icon" aria-label="Example icon-button with home icon">
@@ -12,10 +14,11 @@
         <mat-icon>share</mat-icon>
       </button>
     </mat-toolbar>
-    <button mat-raised-button class="createbutton" (click) = "onCreate()" >
+    <button mat-raised-button class="createbutton" (click) = "onCreateEmployee()" >
         <mat-icon>add</mat-icon>Create
     </button>
 
 </div>
-<app-cards></app-cards>
 
+<!-- Cards-->
+<app-cards [employees]="employees"></app-cards>

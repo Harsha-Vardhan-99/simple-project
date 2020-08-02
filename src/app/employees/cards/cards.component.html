@@ -1,22 +1,21 @@
 <div class="container">
-<div *ngFor="let user of Users">
+<div *ngFor="let user of employees">
 
 <mat-card class="example-card">
-    <mat-card-header class="cardheader">
+    <mat-card-header class="cardheader row">
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>{{user.fullName}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-    <div class="email">
-        <mat-icon>email</mat-icon>{{user.email}}
+    <div class="row">
+        <mat-icon class="icon">email</mat-icon>{{user.email}}
     </div>
-    <div class="phone">
-        <mat-icon>phone</mat-icon>{{user.mobile}}
+    <div class="row">
+        <mat-icon class="icon">phone</mat-icon>{{user.mobile}}
     </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button>EDIT</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -1,5 +1,6 @@
-import { EmployeeService } from './../../shared/employee.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import { FormGroup,FormControl, Validators, NG_VALIDATORS} from "@angular/forms";
 
 @Component({
   selector: 'app-employee',
@@ -8,15 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(public service:EmployeeService) { }
+  form: FormGroup=new FormGroup({
+    $key:new FormControl(null),
+    fullName:new FormControl('',Validators.required),
+    email: new FormControl('',Validators.email),
+    mobile:new FormControl('',Validators.required),
+    gender:new FormControl('1'),
+    city:new FormControl('')
+  });
+
+  constructor(
+    private dialogRef: MatDialogRef<EmployeeComponent>,
+    @Inject(MAT_DIALOG_DATA) data)
+    { }
 
   ngOnInit(): void {
   }
+
  onSave(): void{
-    this.service.saveEmployee();
+    this.dialogRef.close(this.form.value);
   }
+
   onCancel(){
-    this.service.getEmployee();
+    this.dialogRef.close();
   }
-  
+
 }

@@ -2,39 +2,29 @@
 //import { localstorageDB } from '../../../node_modules/localstoragedb';
 
 import { Injectable } from '@angular/core';
-import { FormGroup,FormControl, Validators, NG_VALIDATORS} from "@angular/forms";
 
-//var localstorageDB=require ("localstorageDB");
 import localStorageDB from "localStorageDB";
+import {Employee} from '../employees/schema/Employee';
+
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
-  //database=new localstorageDB("Employee",localStorage);
+
   database = new localStorageDB("Employee","localStorage")
-  form: FormGroup=new FormGroup({
-    $key:new FormControl(null),
-    fullName:new FormControl('',Validators.required),
-    email: new FormControl('',Validators.email),
-    mobile:new FormControl('',Validators.required),
-    gender:new FormControl('1'),
-    department:new FormControl(0),
-    hireDate:new FormControl(''),
-    isPermanent:new FormControl(false),
-    city:new FormControl('')
-  });
-  constructor() { 
-  if(!this.database.tableExists("Users")){
-   this.database.createTable("Users",["fullName","email","mobile","gender","city"]);
-  };
-}
-  saveEmployee(){
-    const {fullName,email,mobile,gender,city} = this.form.value;
-    this.database.insert("Users",{fullName,email,mobile,gender,city});
+
+  constructor() {
+    if(!this.database.tableExists("Users")){
+     this.database.createTable("Users",["fullName","email","mobile","gender","city"]);
+    };
+  }
+
+  saveEmployee(employee: Employee){
+    this.database.insert("Users",employee);
     this.database.commit();
   }
+
   getEmployee(){
-    console.log(this.database.queryAll("Users",{}));
     return this.database.queryAll("Users",{});
   }
 }
