@@ -1,37 +1,57 @@
 <form [formGroup]="service.form" class="normal-form">
-<mat-grid-list cols="2" rowHeight="300px">
+    <div class="adduser">Add User</div>
+<mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+        <div class="controles-container">
+            
+            <div class="basic">
+                Basic
+            </div>
+            <div class="basic">
+                Personal
+            </div>
+            <div class="basic">
+                Work
+            </div>
+            <div class="basic">
+                Contacts
+            </div>
+            <div class="basic">
+                Sociallife
+            </div>
+            <mat-dialog-actions>
+            <div class="button-row">
+                <button mat-raised-button mat-dialog-close color="primary" type="submit" [disabled]="service.form.invalid" (click)="onSave()">Submit</button>
+
+            </div>
+            </mat-dialog-actions>
+        </div>
+    </mat-grid-tile>
     <mat-grid-tile>
         <div class="controles-container">
             <input type="hidden" formControlName="$key">
             <mat-form-field>
-                <input formControlName="fullName" matInput placeholder="Full Name">
+                <input formControlName="fullName" matInput placeholder="Full Name*">
+                <mat-error>This field is mandatory.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input formControlName="email" matInput placeholder="Email">
+                <mat-error>Invalid email Address</mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input formControlName="mobile" matInput placeholder="Mobile">
+                <input formControlName="mobile" matInput placeholder="Mobile*">
+                <mat-error>This field is mandatory.</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input formControlName="city" matInput placeholder="City">
             </mat-form-field>
-        </div>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <div class="controles-container">
-            
-            <div class="add-buttom-padding">
-                <mat-radio-group formControlName="gender">
-                    <mat-radio-button valve="1">Male</mat-radio-button>
-                    <mat-radio-button valve="2">Female</mat-radio-button>
-                    <mat-radio-button valve="3">Other</mat-radio-button>
-                </mat-radio-group>
-            </div>
+            <mat-dialog-actions>
             <div class="button-row">
-                <button mat-raised-button color="primary" type="submit" (click)="onSave()">Submit</button>
-                <button mat-raised-button color="warn" type="cancel">Cancel</button>
+                <button mat-raised-button mat-dialog-close color="warn" type="cancel" (click)="onCancel()">Cancel</button>
             </div>
+            </mat-dialog-actions>
         </div>
     </mat-grid-tile>
+    
 </mat-grid-list>
 </form>

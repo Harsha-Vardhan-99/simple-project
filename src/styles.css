@@ -22,14 +22,30 @@ mat-radio-group mat-radio-button{
     padding: 10px;
 }
 .example-card {
-    width: 400px;
-    margin:auto;
+    width: 450px;
+    margin:10px;
   }
   
   .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-image: url('assets/blankprofile.png');
     background-size: cover;
   }
   .cardheader{
-    background-color:rgb(83, 42, 180);
+    background-color:darkslateblue;
+}
+.cardtitle{
+    color:white;
+    margin-top:8px;
+}
+.emailicon,.phoneicon{
+    margin:10px;
+}
+.basic{
+    text-align: center;
+    margin-top: 24px;
+    font-size: large;
+}
+.adduser{
+    font-size: x-large;
+    font-weight: bold;
 }

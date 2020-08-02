@@ -4,19 +4,19 @@
 <mat-card class="example-card">
     <mat-card-header class="cardheader">
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{user.fullName}}</mat-card-title>
+      <mat-card-title class="cardtitle">{{user.fullName}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
     <div class="email">
-        <mat-icon>email</mat-icon>{{user.email}}
+        <mat-icon class="emailicon">email</mat-icon>{{user.email}}
     </div>
     <div class="phone">
-        <mat-icon>phone</mat-icon>{{user.mobile}}
+        <mat-icon class="phoneicon">phone</mat-icon>{{user.mobile}}
     </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button (click)="onDelete()">DELETE</button>
+      <button mat-button (click)="onUpdate()">UPDATE</button>
     </mat-card-actions>
   </mat-card>
 </div>

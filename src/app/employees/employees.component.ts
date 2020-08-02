@@ -14,7 +14,7 @@ export class EmployeesComponent implements OnInit {
     const dialogconfig=new MatDialogConfig;
     //dialogconfig.disableClose=true;
     dialogconfig.autoFocus=true;
-    dialogconfig.width="60%";
+    dialogconfig.width="50%";
     this.dialog.open(EmployeeComponent,dialogconfig);
   }
   ngOnInit(): void {

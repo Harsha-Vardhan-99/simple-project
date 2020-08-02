@@ -10,6 +10,10 @@ Users=[];
   constructor(public service:EmployeeService) {
     this.Users=this.service.getEmployee();
    }
+   onDelete(){
+     this.service.deleteEmployee();
+     
+   }
   ngOnInit(): void {
   }
 

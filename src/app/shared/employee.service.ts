@@ -37,4 +37,7 @@ export class EmployeeService {
     console.log(this.database.queryAll("Users",{}));
     return this.database.queryAll("Users",{});
   }
+  deleteEmployee(){
+    
+  }
 }

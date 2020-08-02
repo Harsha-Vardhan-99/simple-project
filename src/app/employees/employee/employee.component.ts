@@ -14,9 +14,11 @@ export class EmployeeComponent implements OnInit {
   }
  onSave(): void{
     this.service.saveEmployee();
+    this.service.form.reset();
   }
   onCancel(){
     this.service.getEmployee();
+    this.service.form.reset();
   }
   
 }
